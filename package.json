@@ -1,0 +1,19 @@
+{
+  "name": "rabbitmq-performance-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "socket.io": "^2.4.0",
+    "socketio": "^1.0.0",
+    "tree-kill": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya Eka",
+  "license": "ISC"
+}
