@@ -12,12 +12,12 @@ io.on('connection', function(socket) {
 	socket.on('start', function(data) {
 		console.log('A user started the rabbitmq test')
 
-		var text = './rabbitmq-test/bin/runjava com.rabbitmq.perf.PerfTest --producers '+data.producers+' --consumers '+data.consumers+' --predeclared --routing-key rk --queue q --use-millis -h amqp://'+data.username+':'+data.password+'@'+data.host+' -c 1 -C '+data.num+' --size '+data.size
+		var text = './rabbitmq-test/bin/runjava com.rabbitmq.perf.PerfTest --producers '+data.producers+' --consumers '+data.consumers+' --predeclared --routing-key rk --queue tesrabbit --use-millis -h amqp://'+data.username+':'+data.password+'@'+data.host+' -c 1 -C '+data.num+' --size '+data.size
 		fs.writeFile('exec.sh', text, function (err, data) {
 		  	if (err) return console.log(err)
 		})
 
-		const cmd = spawn("/bin/sh", ["exec.sh"])
+		const cmd = spawn("sh", ['-c', text])
 		cmd.stdout.on("data", dataCmd => {
 		    console.log(`stdout: ${dataCmd}`)
 
